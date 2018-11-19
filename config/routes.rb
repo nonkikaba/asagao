@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   # /about
   # about_path
   1.upto(18) do |n|
-    get "lesson/step#{n}(/:name)" => "lesson/step#{n}"
+    get "lesson/step#{n}(/:name)" => "lesson#step#{n}"
   end
 end

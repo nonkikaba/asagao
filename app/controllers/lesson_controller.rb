@@ -27,4 +27,9 @@ class LessonController < ApplicationController
   def step7
     @price = (2000 * 1.08).floor
   end
+
+  def step8
+    @price = 1000
+    render "step7"
+  end
 end

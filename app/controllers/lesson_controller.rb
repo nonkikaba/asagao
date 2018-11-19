@@ -23,4 +23,8 @@ class LessonController < ApplicationController
   def step6
     render plain: flash[:notice]
   end
+
+  def step7
+    @price = (2000 * 1.08).floor
+  end
 end

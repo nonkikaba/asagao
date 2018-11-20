@@ -49,4 +49,8 @@ class LessonController < ApplicationController
   def step12
     @time = Time.current
   end
+
+  def step13
+    @population = 127767944
+  end
 end

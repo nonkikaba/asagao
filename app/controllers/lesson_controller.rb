@@ -40,4 +40,13 @@ class LessonController < ApplicationController
   def step10
     @comment = "<strong>安全なHTML</strong>"
   end
+
+  def step11
+    @population = 704414
+    @surface = 141.31
+  end
+
+  def step12
+    @time = Time.current
+  end
 end

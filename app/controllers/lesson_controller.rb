@@ -32,4 +32,12 @@ class LessonController < ApplicationController
     @price = 1000
     render "step7"
   end
+
+  def step9
+    @comment = "<script>alert('危険！')</script>こんにちは"
+  end
+
+  def step10
+    @comment = "<strong>安全なHTML</strong>"
+  end
 end

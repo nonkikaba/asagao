@@ -53,4 +53,8 @@ class LessonController < ApplicationController
   def step13
     @population = 127767944
   end
+
+  def step14
+    @message = "ごきげんいかが？\nRailsの勉強をがんばりましょう。"
+  end
 end

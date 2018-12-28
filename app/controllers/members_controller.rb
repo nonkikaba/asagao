@@ -3,6 +3,11 @@ class MembersController < ApplicationController
     @members = Member.order("number")
   end
 
+  def search
+    @members = Member.search(params[:q])
+    render "index"
+  end
+
   def show
 
   end

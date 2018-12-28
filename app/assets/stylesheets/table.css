@@ -1,0 +1,25 @@
+/* 表：一覧表示、詳細表示 */
+table {
+  font-size: 90%;
+  width: 100%;
+}
+
+table th, table th {
+  background-color: #499;
+  color: white;
+  font-weight: normal;
+}
+
+table td, table th{
+  padding: 4px;
+}
+
+table th {
+  text-align: left;
+}
+
+table td, table td {
+  background-color: #cee;
+}
+
+

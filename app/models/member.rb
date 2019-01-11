@@ -1,4 +1,5 @@
 class Member < ApplicationRecord
+  has_secure_password
   # 空を禁止、1以上100未満の整数、会員の間で重複を禁止
   validates :number, presence: true,
     numericality: {

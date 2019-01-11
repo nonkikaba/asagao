@@ -1,4 +1,5 @@
-<%= render "shared/login_form" %>
+<!-- ログイン中はフォームが表示されないようにする　-->
+<%= render "shared/login_form" unless current_member %>
 
 <h2>最新ニュース</h2>
 <ul>

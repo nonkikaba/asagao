@@ -43,6 +43,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
+    bcrypt (3.1.12)
+    bcrypt (3.1.12-x64-mingw32)
+    bcrypt (3.1.12-x86-mingw32)
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
@@ -50,6 +53,8 @@ GEM
     byebug (10.0.2)
     concurrent-ruby (1.1.3)
     crass (1.0.4)
+    email_validator (1.6.0)
+      activemodel
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.25)
@@ -111,6 +116,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails-i18n (5.1.2)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.2.1)
       actionpack (= 5.2.1)
       activesupport (= 5.2.1)
@@ -175,14 +183,17 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
+  email_validator (~> 1.6)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   loofah (>= 2.2.3)
   puma (~> 3.11)
   rack (>= 2.0.6)
   rails (~> 5.2.0)
+  rails-i18n (~> 5.1)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

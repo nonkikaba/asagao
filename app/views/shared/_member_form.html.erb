@@ -31,10 +31,11 @@
     <th><%= form.label :email %></th>
     <td><%= form.text_field :email %></td>
   </tr>
+  <% if controller.kind_of?(MembersController) %>
   <tr>
     <th><%= Member.human_attribute_name(:administrator) %></th>
     <td>
-      <%= form.check_box :administrator %>
+      <%= form.check_box :administrator, disabled: !current_member.administrator? %>
       <%= form.label :administrator %>
     </td>
   </tr>

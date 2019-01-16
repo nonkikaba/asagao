@@ -1,5 +1,5 @@
 # %wは文字列の配列を作る
-table_names = %w(members)
+table_names = %w(members articles)
 table_names.each do |table_name|
   # Rails.rootはアプリケーションのルートパス(/asagao)を表すオブジェクトを返す。
   # このオブジェクトにjoinメソッドでディレクトリ名をいくつも渡せば

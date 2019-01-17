@@ -3,9 +3,22 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.order(released_at: :desc)
+    @articles = @articles.open_to_the_public unless current_member
+
+    unless current_member&.administrator?
+      @articles = @articles.visible
+    end
   end
 
   def show
+    articles = Article.all
+
+    articles = articles.open_to_the_public unless current_member
+
+    unless current_member&.administrator?
+      articles  = articles.visible
+    end
+
     @article = Article.find(params[:id])
   end
 

@@ -1,5 +1,9 @@
 class Member < ApplicationRecord
   has_secure_password
+
+  # ある会員が削除されると、そのブログ記事も削除される
+  has_many :entries, dependent: :destroy
+
   # 空を禁止、1以上100未満の整数、会員の間で重複を禁止
   validates :number, presence: true,
     numericality: {

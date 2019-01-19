@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get "about" => "top#about", as: "about"
   # /about
   # about_path
+  get "bad_request" => "top#bad_request"
+  get "forbidden" => "top#forbidden"
+  get "internal_server_error" => "top#internal_server_error"
 
 
   resources :members do

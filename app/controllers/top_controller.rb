@@ -5,6 +5,18 @@ class TopController < ApplicationController
   end
 
   def about
+  end
 
+  def bad_request
+    # 第二引数は例外のメッセージ
+    raise ActionController::ParameterMissing, ""
+  end
+
+  def forbidden
+    raise Forbidden, ""
+  end
+
+  def internal_server_error
+    raise
   end
 end

@@ -1,6 +1,10 @@
 <%= render "shared/errors", obj: @member %>
 <table class="attr">
   <tr>
+    <td><%= form.label :new_profile_picture %></td>
+    <td><%= form.file_field :new_profile_picture %></td>
+  </tr>
+  <tr>
     <th><%= form.label :number %></th>
     <td><%= form.text_field :number, size: 8 %></td>
   </tr>

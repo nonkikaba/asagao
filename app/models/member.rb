@@ -3,6 +3,8 @@ class Member < ApplicationRecord
 
   # ある会員が削除されると、そのブログ記事も削除される
   has_many :entries, dependent: :destroy
+  has_one_attached :profile_picture
+  attribute :new_profile_picture
 
   # 空を禁止、1以上100未満の整数、会員の間で重複を禁止
   validates :number, presence: true,
@@ -25,6 +27,12 @@ class Member < ApplicationRecord
 
   attr_accessor :current_password
   validates :password, presence: { if: :current_password }
+
+  before_save do
+    if new_profile_picture
+      self.profile_picture = new_profile_picture
+    end
+  end
 
   class << self
     def search(query)

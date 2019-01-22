@@ -5,6 +5,7 @@ class Member < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_one_attached :profile_picture
   attribute :new_profile_picture
+  attribute :remove_profile_picture, :boolean
 
   # 空を禁止、1以上100未満の整数、会員の間で重複を禁止
   validates :number, presence: true,
@@ -28,9 +29,25 @@ class Member < ApplicationRecord
   attr_accessor :current_password
   validates :password, presence: { if: :current_password }
 
+  # new_profile_picture属性がnilでもfalseでもない場合だけ、プロック内のコードを実行してバリデーションを行う
+  validate if: :new_profile_picture do
+    # respond_toメソッドはあるオブジェクトが特定のメソッドを持っているかどうかを調べてtrueまたはfalseを返す
+    # new_profile_pictureがこのメソッドを持っていない場合はそれがフォームからアップロードされた
+    # ファイルデータではないことを示す。
+    if new_profile_picture.respond_to(:content_type)
+      unless new_profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
+        errors.add(:new_profile_picture, :invalid_image_type)
+      end
+    else
+      errors.add(:new_profile_picture, :inavalid)
+    end
+  end
+
   before_save do
     if new_profile_picture
       self.profile_picture = new_profile_picture
+    elsif remobe_profile_picture
+      self.profile_picture.purge
     end
   end
 

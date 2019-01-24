@@ -58,3 +58,5 @@ gem 'rails-i18n', '~>5.1'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'jquery-rails'
+# モデルオブジェクトの順番を入れ替えるgem
+gem 'acts_as_list'

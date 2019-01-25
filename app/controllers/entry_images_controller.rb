@@ -6,7 +6,8 @@ class EntryImagesController < ApplicationController
   end
   
   def index
-    @images = @entry.images.order(:id)
+    # gemパッケージacts_as_listはオブジェクトの並び順を変更するのにpositionカラムを使う
+    @images = @entry.images.order(:position)
   end
 
   def show
@@ -44,6 +45,20 @@ class EntryImagesController < ApplicationController
     @image = @entry.images.find(params[:id])
     @image.destroy
     redirect_to [@entry, :images], notice: "画像を削除しました"
+  end
+
+  # 表示位置をあげる
+  def move_higher
+    @image = @entry.images.find(params[:id])
+    @image.move_higher
+    redirect_back fallback_location: [@entry, :images]
+  end
+
+  # 表示位置を下げる
+  def move_lower
+    @image = @entry.images.find(params[:id])
+    @image.move_lower
+    redirect_back fallback_location: [@entry, :images]
   end
 
   private

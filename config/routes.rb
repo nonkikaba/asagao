@@ -25,4 +25,10 @@ Rails.application.routes.draw do
       patch :move_higher, :move_lower, on: :member
     end
   end
+
+  namespace :admin do
+    root "top#index"
+    # admin_root_pathでURLパス生成
+    # link_toの第二引数にシンボルで指定する場合は:admin_root
+  end
 end

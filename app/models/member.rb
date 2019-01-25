@@ -53,6 +53,10 @@ class Member < ApplicationRecord
     end
   end
 
+  def votable_for?(entry)
+    entry && (entry.author != self) && !votes.exists?(entry_id: entry.id)
+  end
+
   class << self
     def search(query)
       rel = order("number")

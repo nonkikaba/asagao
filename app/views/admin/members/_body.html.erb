@@ -1,0 +1,40 @@
+<table class="attr">
+  <tr>
+    <th>プロフィール編集</th>
+    <td>
+      <!-- プロフィール画像が添付されているかどうかの判定　-->
+      <% if @member.profile_picture.attached? %>
+        <!-- variantは画像データを変換するメソッド。resizeオプションで画像の大きさを調整している -->
+        <%= image_tag @member.profile_picture.variant(resize: "128x128") %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th width="150">背番号</th>
+    <td><%= @member.number %></td>
+  </tr>
+  <tr>
+    <th>ユーザー名</th>
+    <td><%= @member.name %></td>
+  </tr>
+  <tr>
+    <th>氏名</th>
+    <td><%= @member.full_name %></td>
+  </tr>
+  <tr>
+    <th>性別</th>
+    <td><%= @member.sex == 1 ? "男" : "女" %></td>
+  </tr>
+  <tr>
+    <th>誕生日</th>
+    <td><%= @member.birthday&.strftime("%Y年%m月%d日") %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @member.email %></td>
+  </tr>
+  <tr>
+    <th>管理者</th>
+    <td><%= @member.administrator? ? "○" : "－" %></td>
+  </tr>
+</table>

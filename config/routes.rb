@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "internal_server_error" => "top#internal_server_error"
 
 
-  resources :members do
+  resources :members, only: [:index, :show] do
     get "search", on: :collection
     resources :entries, only: [:index]
   end
@@ -30,5 +30,8 @@ Rails.application.routes.draw do
     root "top#index"
     # admin_root_pathでURLパス生成
     # link_toの第二引数にシンボルで指定する場合は:admin_root
+    resources :members do 
+      get "search", on: :collection
+    end
   end
 end

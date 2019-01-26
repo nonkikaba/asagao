@@ -1,4 +1,4 @@
-class MembersController < ApplicationController
+class MembersController < Admin::Base
   before_action :login_required
   
   def index
@@ -21,7 +21,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     if @member.save
-      redirect_to @member, notice: "会員を登録しました"
+      redirect_to admin_member_path(@member), notice: "会員を登録しました"
     else
       render "new"
     end
@@ -35,7 +35,7 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     @member.assign_attributes(member_params)
     if @member.save
-      redirect_to @member, notice: "会員情報を更新しました"
+      redirect_to adimin_member_path(@member), notice: "会員情報を更新しました"
     else
       render "edit"
     end
@@ -44,7 +44,7 @@ class MembersController < ApplicationController
   def destroy
     @member = Member.find(params[:id])
     @member.destroy
-    redirect_to :members, notice: "会員を削除しました"
+    redirect_to admin_members_path(), notice: "会員を削除しました"
     # indexアクションへリダイレクトする
   end
 

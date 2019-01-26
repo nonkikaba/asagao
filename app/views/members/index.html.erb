@@ -6,8 +6,6 @@
   <%= submit_tag "検索" %>
 <% end %>
 
-<div class="toolbar"><%= link_to "会員の新規登録", :new_member %></div>
-
 <% if @members.present? %>
   <table class="list">
     <thead>
@@ -15,7 +13,6 @@
         <th>背番号</th>
         <th>ユーザー名</th>
         <th>氏名</th>
-        <th>操作</th>
       </tr>
     </thead>
     <tbody>
@@ -24,10 +21,6 @@
           <td style="text-align: right"><%= member.number %></td>
           <td ><%= link_to member.name, member %></td>
           <td><%= member.full_name %></td>
-          <td><%= link_to "編集", [:edit, member] %> |
-              <%= link_to "削除", member, method: :delete,
-                      data: { confirm: "本当に削除しますか？" } %> 
-          </td>
         </tr>
       <% end %>
     </tbody>

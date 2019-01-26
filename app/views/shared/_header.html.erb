@@ -7,6 +7,12 @@
   </ul>
 <% end %>
 
+<% if controller.kind_of?(Admin::Base) %>
+  <%= render "shared/admin_menubar" %>
+<% else %>
+  <%= render "shared/menubar" %>
+<% end %>
+
 <nav class="menubar">
   <ul>
     <%= menu_link_to "TOP", :root %>

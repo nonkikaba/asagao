@@ -60,3 +60,6 @@ gem 'kaminari-i18n'
 gem 'jquery-rails'
 # モデルオブジェクトの順番を入れ替えるgem
 gem 'acts_as_list'
+# slim追加
+gem 'slim-rails'
+gem 'html2slim'

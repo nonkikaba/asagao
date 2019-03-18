@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     end
 
     def rescue_bad_request(exception)
-    render "errors/bad_request", status: 400, layout: "error",
+      render "errors/bad_request", status: 400, layout: "error",
       formats: [:html]
     end
 
